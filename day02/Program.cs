@@ -2,6 +2,15 @@
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        var sum = 0;
+
+        foreach (var line in File.ReadLines(@"./input.txt"))
+        {
+            var game = new Game(12, 13, 14, line);
+            if (game.Possible)
+                sum += game.GameId;
+        }
+
+        Console.WriteLine(sum);
     }
 }
