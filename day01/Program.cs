@@ -1,4 +1,4 @@
-﻿static class Day01
+﻿internal static class Program
 {
     static void Part1()
     {
@@ -75,7 +75,7 @@
         }
     }
 
-    static void Main(string[] args)
+    private static void Main(string[] args)
     {
         Part1();
         Part2();
