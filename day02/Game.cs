@@ -27,11 +27,16 @@ public class Game
                 var count = int.Parse(blockParts.ElementAt(0));
                 var color = Enum.Parse<BlockColor>(blockParts.ElementAt(1), true);
                 if (!Counts.TryAdd(color, count))
-                    Counts[color] += count;
+                    Counts[color] = count > Counts[color] ? count : Counts[color];
 
                 if (blockCounts[color] < count)
                     Possible = false;
             }
         }
+    }
+
+    public int Power()
+    {
+        return Counts.Values.Aggregate((a, b) => a * b);
     }
 }
